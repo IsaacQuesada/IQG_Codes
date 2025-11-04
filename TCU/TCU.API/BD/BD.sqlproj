@@ -74,5 +74,10 @@
     <Build Include="dbo\Stored Procedures\EliminarCategoria.sql" />
     <Build Include="dbo\Stored Procedures\EditarCategoria.sql" />
     <Build Include="dbo\Stored Procedures\AgregarCategoria.sql" />
+    <Build Include="dbo\Stored Procedures\ObtenerAspectosEvaluar.sql" />
+    <Build Include="dbo\Stored Procedures\ObtenerAspectoEvaluar.sql" />
+    <Build Include="dbo\Stored Procedures\EliminarAspectoEvaluar.sql" />
+    <Build Include="dbo\Stored Procedures\EditarAspectoEvaluar.sql" />
+    <Build Include="dbo\Stored Procedures\AgregarAspectoEvaluar.sql" />
   </ItemGroup>
 </Project>
