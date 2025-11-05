@@ -17,7 +17,7 @@ namespace Abstracciones.Modelos
     }
     public class AspectoEvaluarResponse : AspectoEvaluarBase
     {
-        public Guid IdAspectoEvaluar { get; set; }
+        public Guid IdAspecto { get; set; }
         public string NombreCategoria { get; set; }
     }
 }

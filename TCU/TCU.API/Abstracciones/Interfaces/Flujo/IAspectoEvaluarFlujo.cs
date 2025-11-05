@@ -10,9 +10,9 @@ namespace Abstracciones.Interfaces.Flujo
     public interface IAspectoEvaluarFlujo
     {
         Task<IEnumerable<AspectoEvaluarResponse>> Obtener();
-        Task<AspectoEvaluarResponse> Obtener(Guid IdAspectoEvaluar);
+        Task<AspectoEvaluarResponse> Obtener(Guid IdAspecto);
         Task<Guid> Agregar(AspectoEvaluarRequest aspectoEvaluar);
-        Task<Guid> Editar(Guid IdAspectoEvaluar, AspectoEvaluarRequest aspectoEvaluar);
-        Task<Guid> Eliminar(Guid IdAspectoEvaluar);
+        Task<Guid> Editar(Guid IdAspecto, AspectoEvaluarRequest aspectoEvaluar);
+        Task<Guid> Eliminar(Guid IdAspecto);
     }
 }

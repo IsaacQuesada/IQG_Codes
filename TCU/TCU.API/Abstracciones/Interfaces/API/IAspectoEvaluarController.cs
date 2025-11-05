@@ -6,9 +6,9 @@ namespace Abstracciones.Interfaces.API
     public interface IAspectoEvaluarController
     {
         Task<IActionResult> Obtener();
-        Task<IActionResult> Obtener(Guid IdAspectoEvaluar);
+        Task<IActionResult> Obtener(Guid IdAspecto);
         Task<IActionResult> Agregar(AspectoEvaluarRequest aspectoEvaluar);
-        Task<IActionResult> Editar(Guid IdAspectoEvaluar, AspectoEvaluarRequest aspectoEvaluar);
-        Task<IActionResult> Eliminar(Guid IdAspectoEvaluar);
+        Task<IActionResult> Editar(Guid IdAspecto, AspectoEvaluarRequest aspectoEvaluar);
+        Task<IActionResult> Eliminar(Guid IdAspecto);
     }
 }
