@@ -79,5 +79,17 @@
     <Build Include="dbo\Stored Procedures\EliminarAspectoEvaluar.sql" />
     <Build Include="dbo\Stored Procedures\EditarAspectoEvaluar.sql" />
     <Build Include="dbo\Stored Procedures\AgregarAspectoEvaluar.sql" />
+    <Build Include="dbo\Tables\InformeRevision.sql" />
+    <Build Include="dbo\Tables\DetalleInformeRevision.sql" />
+    <Build Include="dbo\Stored Procedures\ObtenerInformesRevision.sql" />
+    <Build Include="dbo\Stored Procedures\ObtenerInformeRevision.sql" />
+    <Build Include="dbo\Stored Procedures\ObtenerDetallesInformeRevision.sql" />
+    <Build Include="dbo\Stored Procedures\ObtenerDetalleInformeRevision.sql" />
+    <Build Include="dbo\Stored Procedures\EliminarInformeRevision.sql" />
+    <Build Include="dbo\Stored Procedures\EliminarDetalleInformeRevision.sql" />
+    <Build Include="dbo\Stored Procedures\EditarInformeRevision.sql" />
+    <Build Include="dbo\Stored Procedures\EditarDetalleInformeRevision.sql" />
+    <Build Include="dbo\Stored Procedures\AgregarInformeRevision.sql" />
+    <Build Include="dbo\Stored Procedures\AgregarDetalleInformeRevision.sql" />
   </ItemGroup>
 </Project>
