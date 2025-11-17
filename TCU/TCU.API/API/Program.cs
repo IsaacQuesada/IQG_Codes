@@ -20,6 +20,8 @@ builder.Services.AddScoped<ICategoriaFlujo, CategoriaFlujo>();
 builder.Services.AddScoped<ICategoriaDA, CategoriaDA>();
 builder.Services.AddScoped<IAspectoEvaluarFlujo, AspectoEvaluarFlujo>();
 builder.Services.AddScoped<IAspectoEvaluarDA, AspectoEvaluarDA>();
+builder.Services.AddScoped<IInformeRevisionFlujo, InformeRevisionFlujo>();
+builder.Services.AddScoped<IInformeRevisionDA, InformeRevisionDA>();
 builder.Services.AddScoped<IRepositorioDapper, RepositorioDapper>();
 
 
