@@ -1,0 +1,123 @@
+﻿@page "{idEscuela:guid}"
+@model Web.Pages.Informes.AgregarModel
+
+<header class="subhead">
+    <div class="container">
+        <div class="masthead-subheading">TCU — Sistema de Informes</div>
+        <div class="masthead-heading text-uppercase">Crear Informe de Revisión</div>
+    </div>
+</header>
+
+<section class="page-section bg-light">
+    <div class="container">
+
+        <form method="post">
+
+            <input type="hidden" asp-for="Informe.IdEscuela" />
+
+            <div class="form-group mb-3">
+                <label asp-for="Informe.Fecha"></label>
+                <input type="date" asp-for="Informe.Fecha" class="form-control" />
+                <span asp-validation-for="Informe.Fecha" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Informe.ObservacionGeneral"></label>
+                <textarea asp-for="Informe.ObservacionGeneral" class="form-control"></textarea>
+                <span asp-validation-for="Informe.ObservacionGeneral" class="text-danger"></span>
+            </div>
+
+            <hr />
+
+            <h5>Detalles del Informe</h5>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Aspecto Evaluar</th>
+                        <th>Cumple</th>
+                        <th>Observación</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="detallesBody">
+                    <!-- Filas se agregan dinámicamente -->
+                </tbody>
+            </table>
+
+            <button type="button" class="btn btn-secondary mb-3" onclick="agregarDetalle()">Agregar Detalle</button>
+
+            <div class="text-center">
+                <a asp-page="./Index" asp-route-idEscuela="@Model.Informe.IdEscuela" class="btn btn-secondary">Cancelar</a>
+                <button type="submit" class="btn btn-success">Guardar Informe</button>
+            </div>
+
+        </form>
+
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        var aspectos = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.Aspectos ?? new List<Abstracciones.Modelos.AspectoEvaluarResponse>()));
+
+        function agregarDetalle() {
+            var tbody = document.getElementById('detallesBody');
+            var rowCount = tbody.rows.length;
+            var row = tbody.insertRow();
+
+            // Columna Aspecto dropdown
+            var cellAspecto = row.insertCell();
+            var select = document.createElement("select");
+            select.name = `Detalles[${rowCount}].IdAspecto`;
+            select.className = "form-select";
+            aspectos.forEach(a => {
+                var option = document.createElement("option");
+                option.value = a.IdAspecto;
+                option.text = a.Descripcion;
+                select.appendChild(option);
+            });
+            cellAspecto.appendChild(select);
+
+            // Columna Cumple checkbox
+            var cellCumple = row.insertCell();
+            var inputCumple = document.createElement("input");
+            inputCumple.type = "checkbox";
+            inputCumple.name = `Detalles[${rowCount}].Cumple`;
+            inputCumple.className = "form-check-input";
+            cellCumple.appendChild(inputCumple);
+
+            // Columna Observacion textarea
+            var cellObs = row.insertCell();
+            var inputObs = document.createElement("textarea");
+            inputObs.name = `Detalles[${rowCount}].Observacion`;
+            inputObs.className = "form-control";
+            inputObs.rows = 1;
+            cellObs.appendChild(inputObs);
+
+            // Columna botón eliminar
+            var cellDel = row.insertCell();
+            var btnDel = document.createElement("button");
+            btnDel.type = "button";
+            btnDel.className = "btn btn-danger btn-sm";
+            btnDel.textContent = "Eliminar";
+            btnDel.onclick = function () {
+                tbody.deleteRow(row.rowIndex - 1);
+                renumerarDetalles();
+            };
+            cellDel.appendChild(btnDel);
+        }
+
+        function renumerarDetalles() {
+            var tbody = document.getElementById('detallesBody');
+            for (var i = 0; i < tbody.rows.length; i++) {
+                var row = tbody.rows[i];
+                row.cells[0].querySelector("select").name = `Detalles[${i}].IdAspecto`;
+                row.cells[1].querySelector("input").name = `Detalles[${i}].Cumple`;
+                row.cells[2].querySelector("textarea").name = `Detalles[${i}].Observacion`;
+            }
+        }
+    </script>
+}

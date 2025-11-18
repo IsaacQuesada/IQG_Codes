@@ -1,8 +1,10 @@
 using Abstracciones.Interfaces.DA;
 using Abstracciones.Interfaces.Flujo;
+using Abstracciones.Interfaces.Reglas;
 using DA;
 using DA.Repositorios;
 using Flujo;
+using Reglas;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +24,9 @@ builder.Services.AddScoped<IAspectoEvaluarFlujo, AspectoEvaluarFlujo>();
 builder.Services.AddScoped<IAspectoEvaluarDA, AspectoEvaluarDA>();
 builder.Services.AddScoped<IInformeRevisionFlujo, InformeRevisionFlujo>();
 builder.Services.AddScoped<IInformeRevisionDA, InformeRevisionDA>();
+builder.Services.AddScoped<IDetalleInformeRevisionFlujo, DetalleInformeRevisionFlujo>();
+builder.Services.AddScoped<IDetalleInformeRevisionDA, DetalleInformeRevisionDA>();
+builder.Services.AddScoped<IConfiguracion, Configuracion>();
 builder.Services.AddScoped<IRepositorioDapper, RepositorioDapper>();
 
 

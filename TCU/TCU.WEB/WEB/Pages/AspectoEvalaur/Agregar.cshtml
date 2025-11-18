@@ -1,0 +1,52 @@
+﻿@page
+@model Web.Pages.Aspectos.AgregarModel
+
+<header class="subhead">
+    <div class="container">
+        <div class="masthead-subheading">TCU — Sistema de Aspectos a Evaluar</div>
+        <div class="masthead-heading text-uppercase">Agregar Aspecto a Evaluar</div>
+    </div>
+</header>
+
+<section class="page-section bg-light">
+    <div class="container">
+
+        <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto">
+
+            <form method="post">
+
+                <div class="form-group mb-3">
+                    <label asp-for="Aspecto.Descripcion"></label>
+                    <input class="form-control" asp-for="Aspecto.Descripcion" />
+                    <span class="text-danger" asp-validation-for="Aspecto.Descripcion"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Aspecto.Activo"></label>
+                    <input type="checkbox" asp-for="Aspecto.Activo" />
+                    <span class="text-danger" asp-validation-for="Aspecto.Activo"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Aspecto.IdCategoria">Categoría</label>
+                    <select class="form-control" asp-for="Aspecto.IdCategoria" asp-items="Model.ListaCategorias">
+                        <option value="">-- Seleccione una categoría --</option>
+                    </select>
+                    <span class="text-danger" asp-validation-for="Aspecto.IdCategoria"></span>
+                </div>
+
+                <div class="text-center mt-4">
+                    <a class="btn btn-secondary" asp-page="./Index">Regresar</a>
+                    <button type="submit" class="btn btn-success">Guardar</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+</section>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

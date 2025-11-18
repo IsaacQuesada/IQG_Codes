@@ -1,0 +1,40 @@
+﻿@page "{id:guid}"
+@model Web.Pages.Escuelas.EliminarModel
+
+<header class="subhead">
+    <div class="container">
+        <div class="masthead-subheading">TCU — Sistema de Escuelas</div>
+        <div class="masthead-heading text-uppercase">Eliminar Escuela</div>
+    </div>
+</header>
+
+<section class="page-section bg-light">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Eliminar Escuela</h2>
+            <h3 class="section-subheading text-muted">¿Está seguro de que desea eliminar esta escuela?</h3>
+        </div>
+
+        <div class="col-md-6 mx-auto">
+            <form method="post">
+                <dl class="row">
+                    <dt class="col-sm-4">Código</dt>
+                    <dd class="col-sm-8">@Model.Escuela.Codigo</dd>
+
+                    <dt class="col-sm-4">Centro Educativo</dt>
+                    <dd class="col-sm-8">@Model.Escuela.NombreCentroEducativo</dd>
+
+                    <dt class="col-sm-4">Director(a)</dt>
+                    <dd class="col-sm-8">@Model.Escuela.NombreDirector</dd>
+                </dl>
+
+                <input type="hidden" asp-for="Escuela.IdEscuela" />
+
+                <div class="d-flex justify-content-between">
+                    <a asp-page="./Index" class="btn btn-secondary">Cancelar</a>
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

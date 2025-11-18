@@ -1,0 +1,54 @@
+﻿@page
+@model Web.Pages.Escuelas.AgregarModel
+
+<h2>Agregar Escuela</h2>
+
+<header class="subhead">
+    <div class="container">
+        <div class="masthead-subheading">TCU — Sistema de Escuelas</div>
+        <div class="masthead-heading text-uppercase">Agregar Escuela</div>
+    </div>
+</header>
+
+<section class="page-section bg-light">
+    <div class="container">
+
+        <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto">
+
+            <form method="post">
+
+                <div class="form-group mb-3">
+                    <label asp-for="Escuela.Codigo"></label>
+                    <input class="form-control" asp-for="Escuela.Codigo" />
+                    <span class="text-danger" asp-validation-for="Escuela.Codigo"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Escuela.NombreCentroEducativo"></label>
+                    <input class="form-control" asp-for="Escuela.NombreCentroEducativo" />
+                    <span class="text-danger" asp-validation-for="Escuela.NombreCentroEducativo"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Escuela.NombreDirector"></label>
+                    <input class="form-control" asp-for="Escuela.NombreDirector" />
+                    <span class="text-danger" asp-validation-for="Escuela.NombreDirector"></span>
+                </div>
+
+                <div class="text-center mt-4">
+                    <a class="btn btn-secondary" asp-page="./Index">Regresar</a>
+                    <button type="submit" class="btn btn-success">Guardar</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+</section>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
